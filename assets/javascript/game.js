@@ -8,7 +8,7 @@ var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','
 var wins = 0;
 var losses = 0;
 var guesses = 8;
-var badLetters = [" "];
+var badLetters = [];
 
 //Computer picks random letter
 var computerLetter = letters[Math.floor(Math.random() * letters.length)];
@@ -23,7 +23,7 @@ var updateLetter = function () {
 var resetGame = function() {
 
   guesses = 8;
-  badLetters = [" "];
+  badLetters = [];
 
   //resets letter and updates html based on if statements below
   updateHtml();
@@ -52,8 +52,7 @@ document.onkeyup = function(event) {
   //Keyboard pressed creates value for the variable userLetter
   var userLetter = event.key;
 
-  //calls function to display on keypress and puts it in function
-  updateHtml();
+  
 
  
   // if letter user chooses equals computer's letter, wins increases by 1, alerts user correct letter is picked, game resets
@@ -75,7 +74,7 @@ document.onkeyup = function(event) {
   }
 
   // if run out of guesses, increases number of losses by 1, alerts user incorrect letter wasn't found, game resets
-  if (guesses < 0) {
+  if (guesses === 0) {
 
     losses++;
     alert("Your will never be the next Miss Cleo. Better luck next time!");
@@ -83,6 +82,9 @@ document.onkeyup = function(event) {
     
 
   }
+
+  //calls function to display on keypress and puts it in function
+  updateHtml(userLetter);
 
    
 
