@@ -52,9 +52,11 @@ document.onkeyup = function(event) {
   //Keyboard pressed creates value for the variable userLetter
   var userLetter = event.key;
 
-  updateHtml(userLetter);
+  //calls function to display on keypress and puts it in function
+  updateHtml();
 
  
+  // if letter user chooses equals computer's letter, wins increases by 1, alerts user correct letter is picked, game resets
   if (userLetter === computerLetter) {
 
     wins++;
@@ -64,16 +66,16 @@ document.onkeyup = function(event) {
 
   }
 
+  // if letter user chooses doesn't equal computer's letter, guesses decreases by 1 and pushes userLetter to badLetters array
   else if(userLetter != computerLetter) {
 
     guesses--;
-    // console.log(guesses);
     badLetters.push(userLetter);
-    // console.log(badLetters);
     
   }
 
-  if (guesses === -1) {
+  // if run out of guesses, increases number of losses by 1, alerts user incorrect letter wasn't found, game resets
+  if (guesses < 0) {
 
     losses++;
     alert("Your will never be the next Miss Cleo. Better luck next time!");
@@ -85,10 +87,10 @@ document.onkeyup = function(event) {
    
 
   
-
-console.log('Computer Letter: ' + computerLetter);
-  // console.log(wins);
-  console.log(guesses);
+// Testing purposes
+// console.log('Computer Letter: ' + computerLetter);
+//   console.log('Wins: ' + wins);
+//   console.log(guesses);
 
 };
 
