@@ -71,15 +71,11 @@ document.onkeyup = function(event) {
     //comparing wrongly chosen letters with the array of badLetters
     var badArray = badLetters.indexOf(userLetter);
 
+    //helps prevent duplicate letters from entering array
     if (badArray === -1 ) {
 
       guesses--;
       badLetters.push(userLetter);
-
-    }
-
-    // prevents letter duplicates from being added
-    else {
 
     }
 
