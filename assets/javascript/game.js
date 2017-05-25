@@ -68,8 +68,21 @@ document.onkeyup = function(event) {
   // if letter user chooses doesn't equal computer's letter, guesses decreases by 1 and pushes userLetter to badLetters array
   else if(userLetter != computerLetter) {
 
-    guesses--;
-    badLetters.push(userLetter);
+    //comparing wrongly chosen letters with the array of badLetters
+    var badArray = badLetters.indexOf(userLetter);
+
+    if (badArray === -1 ) {
+
+      guesses--;
+      badLetters.push(userLetter);
+
+    }
+
+    // prevents letter duplicates from being added
+    else {
+
+    }
+
     
   }
 
