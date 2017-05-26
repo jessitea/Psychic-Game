@@ -51,9 +51,9 @@ document.onkeyup = function(event) {
 
   //Keyboard pressed creates value for the variable userLetter
   var userLetter = event.key;
+  var x = event.keyCode;
 
-  
-
+  if (x >= 65 && x<=90) {
  
   // if letter user chooses equals computer's letter, wins increases by 1, alerts user correct letter is picked, game resets
   if (userLetter === computerLetter) {
@@ -72,7 +72,7 @@ document.onkeyup = function(event) {
     var badArray = badLetters.indexOf(userLetter);
 
     //helps prevent duplicate letters from entering array
-    if (badArray === -1 ) {
+    if (badArray === -1) {
 
       guesses--;
       badLetters.push(userLetter);
@@ -92,8 +92,21 @@ document.onkeyup = function(event) {
 
   }
 
+
+
+  }
+
+  else {
+
+    alert("Please press a letter!");
+  }
+
   //calls function to display on keypress and puts it in function
   updateHtml(userLetter);
+
+  console.log(x);
+
+};
 
    
 
@@ -103,7 +116,7 @@ document.onkeyup = function(event) {
 //   console.log('Wins: ' + wins);
 //   console.log(guesses);
 
-};
+
 
  
 
